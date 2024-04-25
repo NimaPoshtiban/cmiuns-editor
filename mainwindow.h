@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "highlighter.h"
 #include <QMainWindow>
 #include <QBoxLayout>
 QT_BEGIN_NAMESPACE
@@ -12,7 +12,7 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    void setupEditor();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -29,6 +29,7 @@ private slots:
     void on_actionrun_triggered();
 
 private:
+    Highlighter *highlighter;
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

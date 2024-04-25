@@ -22,10 +22,27 @@ std::string exec(const char* cmd) {
 }
 
 
+void MainWindow::setupEditor()
+{
+    QFont font;
+    font.setFamily("Courier");
+    font.setFixedPitch(true);
+    font.setPointSize(10);
+
+    this->ui->textEdit->setFont(font);
+
+    highlighter = new Highlighter(this->ui->textEdit->document());
+
+    QFile file("mainwindow.h");
+    if (file.open(QFile::ReadOnly | QFile::Text))
+        this->ui->textEdit->setPlainText(file.readAll());
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     this->cminus_path = "cimuns.exe";
 #ifdef Q_OS_LINUX
     this->cminus_path = "cminus";
@@ -34,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->cminus_path = "cimuns";
 #endif
     ui->setupUi(this);
+    this->highlighter = new Highlighter(this->ui->textEdit->document());
 }
 
 MainWindow::~MainWindow()

@@ -89,9 +89,9 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(69, 47, 74);
+        <string notr="true">
 font: 500 12pt &quot;FiraMono Nerd Font Mono&quot;;
-color: rgb(62, 200, 94);</string>
+</string>
        </property>
       </widget>
      </item>
